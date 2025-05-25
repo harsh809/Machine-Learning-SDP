@@ -121,21 +121,4 @@ plt.tight_layout()
 plt.savefig(f'{model_name}_confusion_matrix_ros.png')
 plt.close()
 
-# AUC-ROC Curve plot
-
-fpr, tpr, _ = roc_curve(y_test, y_test_prob)
-
-plt.figure(figsize=(8, 6))
-plt.plot(fpr, tpr, label=f'AUC = {auc_score:.2f}', color='blue')
-plt.plot([0, 1], [0, 1], linestyle='--', color='gray')
-plt.xlabel("False Positive Rate")
-plt.ylabel("True Positive Rate")
-plt.title(f"AUC-ROC Curve - {model_name.upper()} (ROS)")
-plt.legend(loc="lower right")
-plt.grid(True)
-plt.tight_layout()
-plt.savefig(f"{model_name}_auc_roc_curve_ros.png")
-plt.close()
-
-
 print("\n✅ Evaluation complete. Model, results, and plots saved.")
